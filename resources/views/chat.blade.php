@@ -11,6 +11,7 @@
         width: 1194px;
     }
 
+
     #lateralizq {
         background: none repeat scroll 0 0 #556677;
         float: left;
