@@ -73,16 +73,23 @@
 </head>
 <body style="background-color: #2a2a2a">
 <div id="body" >
+
+
     <div  style="position: fixed;right: 79%;width: 300px;background: cyan">
 
-        <strong id="usuario">Chat Grupal</strong>
+        <a  class="button" style="font-size: 10px;" title="Ir atras" href="{{url('/xml_java')}}">
+            <span  class="dashicons dashicons-admin-generic"></span><i class="fa fa-mail-reply"></i> <h2>GENERAR CODIGO JAVA</h2>
+        </a><br>
+        <strong id="usuario">Chat Grupal </strong>
         <div>
-            <lavel for="nombre">nombre</lavel>
-            <input type="text" id="nombre">
+            <lavel for="nombre">USUARIO: </lavel>
+            <label type="text" id="nombre" >
+                {{Auth::User()->name}}
+            </label>
         </div>
 
-        <div class="columna"><button type="button" id="btnEnviar">Enviar</button></div>
-        <div class="columna"><lavel for="mensaje">Mensaje</lavel><textarea id="mensaje"></textarea></div>
+        <div class="columna"><lavel for="mensaje"></lavel><textarea style="width: 80%" id="mensaje"></textarea></div>
+        <div class="columna"><button type="button" id="btnEnviar" style="width: 100%">Enviar Mensaje</button></div>
         <ul id="lista">
         </ul>
 
@@ -114,7 +121,7 @@
     var listaChat = document.getElementById('lista');
 
     btnEnviar.addEventListener("click", function () {
-        var nombre = txtNombre.value;
+        var nombre = txtNombre.innerHTML;
         var mensaje = txtMensaje.value;
         firebase.database().ref('chat').push({
             nombre: nombre,

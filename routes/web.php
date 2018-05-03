@@ -15,3 +15,12 @@ Route::get('/', function () {
     ///return view('welcome');
     return view('chat');
 });
+
+Route::get('xml_java', function () {
+    ///return view('welcome');
+    return view('xml_java');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
